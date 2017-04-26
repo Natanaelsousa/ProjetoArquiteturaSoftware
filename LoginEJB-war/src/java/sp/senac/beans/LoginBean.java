@@ -34,10 +34,18 @@ public class LoginBean {
     @EJB
   private AutenticadorEJBLocal autenticadorEJB;
     public String autenticarUsuario(){
+        String pag = "erro";
        boolean ok =  autenticadorEJB.validarUsuario(nomeUsuario, senha);
-       
-        return(ok?"home":"erro");
+       if((ok == true) && (nomeUsuario == "admin")){
+           pag = "admin";
+       }else if ((ok == true) && (nomeUsuario == "teste")){
+           pag = "home";
+       }
+        return pag;
+                
     }
+    
+    
     
     
     public String getNomeUsuario() {

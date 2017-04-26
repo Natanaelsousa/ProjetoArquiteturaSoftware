@@ -19,6 +19,9 @@ public class AutenticadorEJB implements AutenticadorEJBLocal {
         boolean isOk= false;
         if("teste".equals(nomeUsuario) && "1234".equals(senha)){
             isOk = true;
+        }else if ("admin".equals(nomeUsuario)&& "admin".equals(senha)){
+            
+            isOk = true;
         }
         return isOk;
     }
