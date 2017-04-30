@@ -35,18 +35,26 @@ public class LoginBean {
   private AutenticadorEJBLocal autenticadorEJB;
     public String autenticarUsuario(){
         String pag = "erro";
+        
        boolean ok =  autenticadorEJB.validarUsuario(nomeUsuario, senha);
-       if((ok == true) && (nomeUsuario == "admin")){
-           pag = "admin";
-       }else if ((ok == true) && (nomeUsuario == "teste")){
+       if((ok == true) && (nomeUsuario.equalsIgnoreCase("admin"))){
+           pag = "home";
+  
+       }else if ((ok == true) && (nomeUsuario.equalsIgnoreCase("teste"))){
            pag = "home";
        }
         return pag;
                 
     }
     
-    
-    
+    public boolean apresentaSeForAdmin(){
+        boolean user = false;
+        if(nomeUsuario.equalsIgnoreCase("admin")){
+            
+        user = true;
+    }
+        return user;
+    }
     
     public String getNomeUsuario() {
         return nomeUsuario;
@@ -69,5 +77,10 @@ public class LoginBean {
         
         
     }
+
+    /**
+     * @return the mostraAdmin
+     */
+
     
 }

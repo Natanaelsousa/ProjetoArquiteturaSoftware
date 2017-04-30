@@ -8,10 +8,11 @@
     </h:head>
     <h:body>
         Bem Vindo!!
-        <form>
-            <p:commandLink value="admin" rendered="#{loginBean.mostraAdmin}"/>
+        <h:form>
+            <p:commandLink value="admin" rendered="#{loginBean.apresentaSeForAdmin()}"
+                           action="admin"></p:commandLink>
             
-        </form>
+        </h:form>
         
     </h:body>
 </html>
